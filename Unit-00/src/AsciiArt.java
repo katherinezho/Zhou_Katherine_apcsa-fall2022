@@ -26,7 +26,6 @@ public class AsciiArt
 		System.out.println("       /___|             |___\\       " );
 		System.out.println("           \\____________/            " );
 		System.out.println("               W     W    	       " );
-		System.out.println("               W     W    	       " );
 
 
 		//add other output
