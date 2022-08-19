@@ -25,7 +25,8 @@ public class Variables
 
 
 		//decimal variables
-		float floatVariable = 3.1415926;
+		float floatVariable = 0.3f;
+		
 		double doubleVariable = 6.28;
 
 
