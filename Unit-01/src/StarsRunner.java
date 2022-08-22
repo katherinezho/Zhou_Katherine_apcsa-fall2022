@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 //� A+ Computer Science
+=======
+//© A+ Computer Science
+>>>>>>> 56b072dbb167f32e469aa0be49bcefc6c17f8f89
 //www.apluscompsci.com
 
 //Name -
@@ -13,7 +17,11 @@ public class StarsRunner
    public static void main(String args[])
    {
       //instantiate a StarsAndStripes object
+<<<<<<< HEAD
       StarsAndStripes drawing = new StarsAndStripes();
+=======
+      StarsRunner stars = new StarsRunner();
+>>>>>>> 56b072dbb167f32e469aa0be49bcefc6c17f8f89
       
       //call the methods needed to make the patterns on the word document
       drawing.printTwentyDashes();
