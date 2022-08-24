@@ -41,7 +41,7 @@ public class Distance
 
 	public void calcDistance()
 	{
-		distance = sqrt((x2-x1)(x2-x1) + (y2-y1)(y2-y1));
+		distance = sqrt(pow((xTwo-xOne),2) + pow((yTwo-yOne),2));
 	}
 	
 	public double getDistance()
