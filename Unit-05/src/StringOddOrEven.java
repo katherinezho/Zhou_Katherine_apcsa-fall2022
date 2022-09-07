@@ -38,8 +38,8 @@ public class StringOddOrEven
  	public String toString()
  	{
  		if (isEven()){
-			return word " is even.";
+			return word + " is even.";
 		}
-		return word " is odd.";
+		return word + " is odd.";
 	}
 }

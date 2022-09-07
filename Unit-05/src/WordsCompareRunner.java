@@ -15,11 +15,11 @@ public class WordsCompareRunner
    {
 		//add test cases
 	   Scanner keyboard = new Scanner(System.in);
-	   System.out.print.ln("Enter Word One :: ");
+	   System.out.println("Enter Word One :: ");
 	   
 	   String one = keyboard.next();
 	   
-	   System.out.print.ln("Enter Word Two :: ");
+	   System.out.println("Enter Word Two :: ");
 	   
 	   String two = keyboard.next();
 	   

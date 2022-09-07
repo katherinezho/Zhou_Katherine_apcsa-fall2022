@@ -20,7 +20,7 @@ public class StringRunner
 		
 		String s = keyboard.next();
 		
-		StringOddorEven oddOrEven = new StringOddorEven(s);
-		System.out.println(oddOrEven);
+		StringOddOrEven test = new StringOddOrEven(s);
+		System.out.println(test);
 	}
 }
