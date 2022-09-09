@@ -31,8 +31,8 @@ public class LetterRemover
 	{
 		String cleaned="";
 		
-		for(int i=0, i<str.length(), i++){
-			if(sentence.indexOf[i] == lookFor){
+		for(int i=0; i<sentence.length(); i++){
+			if(sentence.charAt(i) == lookFor){
 			}
 			else{
 				cleaned = cleaned + sentence.substring(i,i+1);
@@ -45,6 +45,6 @@ public class LetterRemover
 	public String toString()
 	{
 		return sentence + " - letter to remove " + lookFor + " = " + removeLetters();
-;
+
 	}
 }

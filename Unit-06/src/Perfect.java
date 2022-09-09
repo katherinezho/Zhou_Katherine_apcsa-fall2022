@@ -17,7 +17,7 @@ public class Perfect
 	}
 
 	//add a set method
-	public void setPerfect(num){
+	public void setPerfect(int num){
 		number = num;
 	}
 

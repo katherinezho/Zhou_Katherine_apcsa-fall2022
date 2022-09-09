@@ -44,6 +44,6 @@ public class Word
 
  	public String toString()
  	{
- 		return "" + getFirstChar() + "\n" + getLastChar() + "\n" + getBackWards + "\n" + word;
+ 		return "" + getFirstChar() + "\n" + getLastChar() + "\n" + getBackWards() + "\n" + word;
 	}
 }
