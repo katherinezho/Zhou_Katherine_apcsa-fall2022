@@ -15,7 +15,7 @@ public class Triples
 
 	public Triples(int num)
 	{
-		setNum(num)
+		setNum(num);
 
 
 	}
@@ -26,24 +26,23 @@ public class Triples
 
 	}
 	public String triple(){
-		String final = "";
+		String finalString = "";
 		for(int a = 1; a < number; a++){
 			for(int b = 1; b < number; b++){
 				for(int c = 1; c < number; c++){
-					if ( ((a*a) + (b*b)) = (c*c)){
-						if(c%2 = 1){
-							if((a%2 = 0 && b%2 = 1) || (a%2 = 1 && b%2 = 0)){
+					if ( ((a*a) + (b*b)) == (c*c)){
+						if(c%2 == 1){
+							if((a%2 == 0 && b%2 == 1) || (a%2 == 1 && b%2 == 0)){
 								if(greatestCommonFactor(a, b, c) == 1){
-									final += a + " " + b + " " + c + "\n";
+									finalString += a + " " + b + " " + c + "\n";
 								}
 							}
 						}
 					}
-					break;
 				}
 			}
 		}
-		return final;
+		return finalString;
 	}
 	
 	private int greatestCommonFactor(int a, int b, int c)
@@ -51,7 +50,7 @@ public class Triples
 		int max = 0;
 		
 		for(int x = 1; x < a; x++){
-			if(a%x = 0 && b%x = 0 && c%x = 0)
+			if(a%x == 0 && b%x == 0 && c%x == 0)
 				max = x;
 		}
 		return max;
