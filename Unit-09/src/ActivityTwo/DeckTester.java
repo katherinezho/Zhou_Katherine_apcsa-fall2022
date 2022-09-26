@@ -29,12 +29,17 @@ public class DeckTester {
     
     String[] rankThree = {"king"};
     String[] suitThree = {"spades", "hearts", "clubs"};
-    int[] pointValuesThree = {10, 3, 7, 12, 13};
+    int[] pointValuesThree = {13};
     Deck testOne = new Deck(rankThree, suitThree, pointValuesThree);
     System.out.println(testThree);
     System.out.println(testThree.isEmpty());
     System.out.println(testThree.size());
     System.out.println(testThree.deal());
+    System.out.println(testThree.deal());
+    System.out.println(testThree.deal());
+    System.out.println(testThree.deal());
+	
+	
     
 	}
 }
