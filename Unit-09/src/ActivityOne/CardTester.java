@@ -9,9 +9,9 @@ public class CardTester {
 	 */
 	public static void main(String[] args) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 1 *** */
-		Card testOne = new Card("ace", "hearts", 12);
-		Card testTwo = new Card("two", "spades", 11);
-		Card testThree = new Card("two", "spades", 11);
+		Card testOne = new Card("ace", "hearts", 13);
+		Card testTwo = new Card("two", "spades", 1);
+		Card testThree = new Card("two", "spades", 1);
 		
 		System.out.println(testOne.suit());
 		System.out.println(testOne.rank());
