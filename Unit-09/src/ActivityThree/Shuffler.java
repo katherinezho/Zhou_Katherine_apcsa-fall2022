@@ -88,16 +88,12 @@ public class Shuffler {
   
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
-    int[] selectionShuffleFinal = new int[values.length];
-    int randomValue = 0;
-    int k = 0;
-    do{
-      randomValue = (int)(Math.random() * (values.length));
-      if(values[randomValue] != null){
-        selectionShuffleFinal[k] = values[randomValue];
-        values[randomValue] = null;
-        k++;
-      }   
-    }while(k<values.length);
+    public static void selectionShuffle(int[] values) {
+    	for(int i = values.length-1; i>0; i--){
+		int randomNumber = (int)(Math.random() * i)
+		int switcher = values[i];
+		values[i] = values[randomNumber];
+		values[randomNumber] = switcher;
 	}
+    }
 }
