@@ -61,6 +61,17 @@ public class Shuffler {
 	 */
 	public static void perfectShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+    int[] perfectShuffleFinal = new int[values.length];
+    int k = 0;
+    for(int even = 0; even < values.length/2; even++){
+      perfectShuffleFinal[k] = values[even];
+      k +=2;
+    }
+    k = 1;
+    for(int odd = values.length/2; odd < values.length; odd++){
+      perfectShuffleFinal[k] = values[odd];
+      k +=2;
+    }
 	}
 
 	/**
@@ -73,8 +84,16 @@ public class Shuffler {
 	 * An efficient version of this algorithm makes use of arrays to avoid
 	 * searching for an as-yet-unselected card.
 	 * @param values is an array of integers simulating cards to be shuffled.
-	 */
+	 *
+  
 	public static void selectionShuffle(int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
+    public static void selectionShuffle(int[] values) {
+    	for(int i = values.length-1; i>0; i--){
+		int randomNumber = (int)(Math.random() * i)
+		int switcher = values[i];
+		values[i] = values[randomNumber];
+		values[randomNumber] = switcher;
 	}
+    }
 }
