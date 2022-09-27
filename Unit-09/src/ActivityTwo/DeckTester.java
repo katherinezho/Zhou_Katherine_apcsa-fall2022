@@ -1,6 +1,7 @@
 /**
  * This is a class that tests the Deck class.
  */
+package ActivityTwo;
 public class DeckTester {
 
 	/**
@@ -18,7 +19,7 @@ public class DeckTester {
     System.out.println(testOne.size());
     System.out.println(testOne.deal());
     
-    String[] rankOne = {"jack", "four", "eight", "king", "ace"};
+    String[] rankTwo = {"jack", "four", "eight", "king", "ace"};
     String[] suitTwo = {"hearts"};
     int[] pointValuesTwo = {10, 3, 7, 12, 13};
     Deck testTwo = new Deck(rankTwo, suitTwo, pointValuesTwo);
@@ -30,7 +31,7 @@ public class DeckTester {
     String[] rankThree = {"king"};
     String[] suitThree = {"spades", "hearts", "clubs"};
     int[] pointValuesThree = {13};
-    Deck testOne = new Deck(rankThree, suitThree, pointValuesThree);
+    Deck testThree = new Deck(rankThree, suitThree, pointValuesThree);
     System.out.println(testThree);
     System.out.println(testThree.isEmpty());
     System.out.println(testThree.size());

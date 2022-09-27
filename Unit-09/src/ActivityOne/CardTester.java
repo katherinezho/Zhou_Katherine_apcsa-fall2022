@@ -1,6 +1,4 @@
-/**
- * This is a class that tests the Card class.
- */
+package ActivityOne;
 public class CardTester {
 
 	/**

@@ -1,4 +1,4 @@
-/**
+package ActivityThree;/**
  * This class provides a convenient way to test shuffling methods.
  */
 public class Shuffler {
@@ -90,7 +90,7 @@ public class Shuffler {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
     public static void selectionShuffle(int[] values) {
     	for(int i = values.length-1; i>0; i--){
-		int randomNumber = (int)(Math.random() * i)
+		int randomNumber = (int)(Math.random() * i);
 		int switcher = values[i];
 		values[i] = values[randomNumber];
 		values[randomNumber] = switcher;
