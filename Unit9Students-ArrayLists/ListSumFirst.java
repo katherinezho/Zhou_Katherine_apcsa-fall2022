@@ -10,6 +10,13 @@ public class ListSumFirst
 {
 	public static int go(List<Integer> ray)
 	{
-		return 0;
+		int count = 0;
+		for (int i = 0, f = ray.get(0); i < ray.size(); i++) {
+			if(ray.get(1)>f)
+				count += ray.get(i);
+		}
+		if(count>0)
+			return count;
+		return -1;
 	}
 }
