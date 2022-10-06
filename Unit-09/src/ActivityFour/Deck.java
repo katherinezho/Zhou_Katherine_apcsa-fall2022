@@ -1,4 +1,8 @@
+package ActivityFour;
 import java.util.List;
+
+import ActivityOne.Card;
+
 import java.util.ArrayList;
 
 /**
@@ -19,6 +23,7 @@ public class Deck {
 	 * The next card to be dealt is at size - 1.
 	 */
 	private int size;
+	private int[] value;
 
 
 	/**
@@ -32,6 +37,7 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		//final array length
+		value = values;
 		size = ranks.length * suits.length;
 		cards = new Card[size];
 		for(int x = 0; x < size; x++){
@@ -71,8 +77,8 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-    for(int i = values.length-1; i>0; i--){
-		  int randomNumber = (int)(Math.random() * i)
+    for(int i = value.length-1; i>0; i--){
+		  int randomNumber = (int)(Math.random() * i);
 	  	Card switcher = cards[i];
 		  cards[i] = cards[randomNumber];
 	  	cards[randomNumber] = switcher;
@@ -91,6 +97,7 @@ public class Deck {
 			return null;
 		size--;
 		Card deal = cards[size];
+		return deal;
 	}
 
 	/**
