@@ -1,5 +1,9 @@
-import java.util.List;
+package ActivityFour;
+import java.util.Arrays;
 import java.util.ArrayList;
+
+import ActivityOne.Card;
+
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -34,9 +38,9 @@ public class Deck {
 		//final array length
 		size = ranks.length * suits.length;
 		for(int x = 0; x < size; x++){
-			for(int i = 0; i < suits.length; i ++){
+			for(int i = 0; i < suits.length; i++){
 				for(int j = 0; j < ranks.length; j++){
-					cards.add(ranks[j], suits[i], values[j]);
+					cards.add(new Card(ranks[j], suits[i], values[j]));
 				}
 			}
 		}
@@ -90,7 +94,8 @@ public class Deck {
 		if(isEmpty())
 			return null;
 		size--;
-		Card deal = cards[size];
+		int deal = cards.size();
+		return cards.get(deal);
 	}
 
 	/**
