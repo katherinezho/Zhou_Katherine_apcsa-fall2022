@@ -1,4 +1,4 @@
-/**
+package ActivityThree;/**
  * This class provides a convenient way to test shuffling methods.
  */
 public class Shuffler {
@@ -7,25 +7,25 @@ public class Shuffler {
 	 * The number of consecutive shuffle steps to be performed in each call
 	 * to each sorting procedure.
 	 */
-	private static final int SHUFFLE_COUNT = 1;
+	private static final int shuffleCount = 1;
 
 	/**
 	 * The number of values to shuffle.
 	 */
-	private static final int VALUE_COUNT = 4;
+	private static final int valueCount = 4;
 
 	/**
 	 * Tests shuffling methods.
 	 * @param args is not used.
 	 */
 	public static void main(String[] args) {
-		System.out.println("Results of " + SHUFFLE_COUNT +
+		System.out.println("Results of " + shuffleCount +
 								 " consecutive perfect shuffles:");
-		int[] values1 = new int[VALUE_COUNT];
+		int[] values1 = new int[valueCount];
 		for (int i = 0; i < values1.length; i++) {
 			values1[i] = i;
 			}
-		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
+		for (int j = 1; j <= shuffleCount; j++) {
 			perfectShuffle(values1);
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values1.length; k++) {
@@ -35,13 +35,13 @@ public class Shuffler {
 		}
 		System.out.println();
 
-		System.out.println("Results of " + SHUFFLE_COUNT +
+		System.out.println("Results of " + shuffleCount +
 								 " consecutive efficient selection shuffles:");
-		int[] values2 = new int[VALUE_COUNT];
+		int[] values2 = new int[valueCount];
 		for (int i = 0; i < values2.length; i++) {
 			values2[i] = i;
 			}
-		for (int j = 1; j <= SHUFFLE_COUNT; j++) {
+		for (int j = 1; j <= shuffleCount; j++) {
 			selectionShuffle(values2);
 			System.out.print("  " + j + ":");
 			for (int k = 0; k < values2.length; k++) {
@@ -90,7 +90,7 @@ public class Shuffler {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 3 *** */
     public static void selectionShuffle(int[] values) {
     	for(int i = values.length-1; i>0; i--){
-		int randomNumber = (int)(Math.random() * i)
+		int randomNumber = (int)(Math.random() * i);
 		int switcher = values[i];
 		values[i] = values[randomNumber];
 		values[randomNumber] = switcher;

@@ -1,5 +1,5 @@
 
-import java.util.Arrayt;
+import java.util.Arrays;
 
 //(c) A+ Computer Science
 //www.apluscompsci.com
