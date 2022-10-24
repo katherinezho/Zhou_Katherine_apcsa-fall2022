@@ -32,7 +32,7 @@ public abstract class Board {
 	 *                    the deck
 	 */
 	public Board(int size, String[] ranks, String[] suits, int[] pointValues) {
-		cards = new Card[size];
+		//cards = new Card[size];
 		deck = new Deck(ranks, suits, pointValues);
 		if (I_AM_DEBUGGING) {
 			System.out.println(deck);
@@ -57,7 +57,7 @@ public abstract class Board {
 	 * @return the size of the board
 	 */
 	public int size() {
-		return cards.length;
+		return cards.size();
 	}
 
 	/**
@@ -65,8 +65,8 @@ public abstract class Board {
 	 * @return true if this board is empty; false otherwise.
 	 */
 	public boolean isEmpty() {
-		for (int k = 0; k < cards.length; k++) {
-			if (cards[k] != null) {
+		for (int k = 0; k < cards.size(); k++) {
+			if (cards.get(k) != null) {
 				return false;
 			}
 		}
@@ -79,7 +79,7 @@ public abstract class Board {
 	 * @param k the index of the card to be dealt.
 	 */
 	public void deal(int k) {
-		cards[k] = deck.deal();
+		cards.set(k, deck.deal());
 	}
 
 	/**
@@ -96,7 +96,7 @@ public abstract class Board {
 	 * @param k is the board position of the card to return.
 	 */
 	public Card cardAt(int k) {
-		return cards[k];
+		return cards.get(k);
 	}
 
 	/**
@@ -178,7 +178,7 @@ public abstract class Board {
 	 */
 	private void dealMyCards() {
 		for (int k = 0; k < cards.length; k++) {
-			cards[k] = deck.deal();
+			cards.set(k, deck.deal());
 		}
 	}
 }
