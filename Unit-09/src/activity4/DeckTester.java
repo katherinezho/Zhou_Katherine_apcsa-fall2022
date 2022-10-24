@@ -1,3 +1,4 @@
+package activity4;
 /**
  * This is a class that tests the Deck class.
  */
@@ -17,32 +18,36 @@ public class DeckTester {
     testOne.shuffle();
     System.out.println(testOne);
     testOne.shuffle();
+    testOne.deal();
+    testOne.deal();
     System.out.println(testOne);
-    System.out.println(testOne.size());
     
     
-    String[] rankOne = {"jack", "four", "eight", "king", "ace"};
+ /* String[] rankTwo = {"jack", "four", "eight", "king", "ace"};
     String[] suitTwo = {"hearts"};
     int[] pointValuesTwo = {10, 3, 7, 12, 13};
     Deck testTwo = new Deck(rankTwo, suitTwo, pointValuesTwo);
     System.out.println(testTwo);
-    System.out.println(testTwo.isEmpty());
-    System.out.println(testTwo.size());
-    System.out.println(testTwo.deal());
+    testTwo.deal();
+    testTwo.deal();
+    testTwo.deal();
+    testTwo.deal();
+    testTwo.deal();
+    System.out.println(testTwo);
+
+    
     
     String[] rankThree = {"king"};
     String[] suitThree = {"spades", "hearts", "clubs"};
     int[] pointValuesThree = {13};
-    Deck testOne = new Deck(rankThree, suitThree, pointValuesThree);
+    Deck testThree = new Deck(rankThree, suitThree, pointValuesThree);
     System.out.println(testThree);
-    System.out.println(testThree.isEmpty());
-    System.out.println(testThree.size());
-    System.out.println(testThree.deal());
-    System.out.println(testThree.deal());
-    System.out.println(testThree.deal());
-    System.out.println(testThree.deal());
+    testThree.deal();
+
+    System.out.println(testThree);
+
 	
-	
-    
+	*/
+   
 	}
 }

@@ -1,4 +1,4 @@
-package ActivityOne;
+package activity1;
 public class CardTester {
 
 	/**

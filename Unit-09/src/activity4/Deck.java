@@ -1,9 +1,11 @@
-package ActivityFour;
+package activity4;
 import java.util.List;
 
-import ActivityOne.Card;
+
+import activity1.Card;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  * The Deck class represents a shuffled deck of cards.
@@ -15,7 +17,7 @@ public class Deck {
 	/**
 	 * cards contains all the cards in the deck.
 	 */
-	private Card[] cards;
+	private ArrayList<Card> cards = new ArrayList<Card>();
 
 	/**
 	 * size is the number of not-yet-dealt cards.
@@ -37,17 +39,17 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 2 *** */
 		//final array length
-		value = values;
+		
 		size = ranks.length * suits.length;
-		cards = new Card[size];
-		for(int x = 0; x < size; x++){
-			for(int i = 0; i < suits.length; i ++){
-				for(int j = 0; j < ranks.length; j++){
-					cards[x] = new Card(ranks[j], suits[i], values[j]);
-				}
+		
+
+		for(int i = 0; i < suits.length; i++) {
+			for(int j = 0; j < ranks.length; j++) {
+				cards.add(new Card(ranks[j], suits[i], values[j]));
 			}
-		}
+		}	
 	}
+	
 
 
 	/**
@@ -77,13 +79,12 @@ public class Deck {
 	 */
 	public void shuffle() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
-    for(int i = value.length-1; i>0; i--){
-		  int randomNumber = (int)(Math.random() * i);
-	  	Card switcher = cards[i];
-		  cards[i] = cards[randomNumber];
-	  	cards[randomNumber] = switcher;
+    for(int i = 0; i<size; i++){
+    	int randomNumber = (int)(Math.random() * i);
+    	Card switcher = cards.get(randomNumber);
+    	cards.set(randomNumber, cards.get(i));
+    	cards.set(i, switcher);
 	  }
-    size = cards.length;
 	}
 
 	/**
@@ -96,7 +97,7 @@ public class Deck {
 		if(isEmpty())
 			return null;
 		size--;
-		Card deal = cards[size];
+		Card deal = cards.get(size);
 		return deal;
 	}
 

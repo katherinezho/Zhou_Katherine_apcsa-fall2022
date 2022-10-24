@@ -1,7 +1,7 @@
 /**
  * This is a class that tests the Deck class.
  */
-package ActivityTwo;
+package activity2;
 public class DeckTester {
 
 	/**

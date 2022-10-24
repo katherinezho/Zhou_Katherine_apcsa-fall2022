@@ -1,7 +1,8 @@
-package ActivityTwo;
+package activity2;
 import java.util.List;
 
-import ActivityOne.Card;
+
+import activity1.Card;
 
 import java.util.ArrayList;
 
