@@ -25,20 +25,20 @@ public class Skeleton implements Monster
 		return name;
 	}
 	public boolean isBigger(Monster other){
-		if(getSize()>(other.getSize()){
+		if(getHowBig()>other.getHowBig()){
 			return true;
 		}
 		return false;
 		
 	}
 	public boolean isSmaller(Monster other){
-		if(getSize()<(other.getSize()){
+		if(getHowBig()<other.getHowBig()){
 			return true;
 		}
 		return false;
 	}
 	public boolean namesTheSame(Monster other){
-		if(getName().equals(other.getName()){
+		if(getName().equals(other.getName())){
 			return true;
 		}
 		return false;
@@ -46,23 +46,8 @@ public class Skeleton implements Monster
 
 	//add a toString
 	public String toString(){
-		String final = "";
-		if(isBigger(monsterTwo)){
-			final += "\n\nMonster one is bigger than monster two";
-		}
-		else{
-			final += "\n\nMonster one is not bigger than monster two";
-		}
-		if(isSmaller(monsterTwo)){
-			final += "\nMonster one is smaller than monster two";
-		}
-		else{
-			final += "\nMonster one is not smaller than monster two";
-		}
-		if(namesTheSame(monsterTwo)){
-			final += "\nMonster one has the same name as Monster two.";
-		}
 		
-		return final;
+		
+		return "" + getName() + " " + getHowBig();
 	}
 }
