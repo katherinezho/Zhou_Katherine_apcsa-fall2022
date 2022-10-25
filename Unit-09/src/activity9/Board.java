@@ -1,3 +1,4 @@
+package activity9;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -118,8 +119,8 @@ public abstract class Board {
 	 */
 	public List<Integer> cardIndexes() {
 		List<Integer> selected = new ArrayList<Integer>();
-		for (int k = 0; k < cards.length; k++) {
-			if (cards[k] != null) {
+		for (int k = 0; k < cards.size(); k++) {
+			if (cards.get(k) != null) {
 				selected.add(new Integer(k));
 			}
 		}
