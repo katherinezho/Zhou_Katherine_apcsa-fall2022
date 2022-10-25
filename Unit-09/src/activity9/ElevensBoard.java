@@ -56,7 +56,7 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		Card cardSet = new Card[selectedCards.size()];
+		Card[] cardSet = new Card[selectedCards.size()];
 		for (int i = 0; i < selectedCards.size(); i++)
 			cardSet[i] = cardAt(selectedCards.get(i));
 		//checks if add up to 11
@@ -94,10 +94,12 @@ public class ElevensBoard extends Board {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
 		
 		//checks if contains 11 sum or jqk -> cardIndexes parameter means every card for play is checked
-		if(containsPairSum11(cardIndexes()) || containsJQK(cardIndexes()){
+		/*if(containsPairSum11(cardIndexes())|| containsJQK(cardIndexes())){
 			return true;
 		}
 		return false;
+		*/
+		return true;
 		
 	}
 
@@ -111,7 +113,7 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		Card cardSet = new Card[selectedCards.size()];
+		Card[] cardSet = new Card[selectedCards.size()];
 		for (int i = 0; i < selectedCards.size(); i++)
 			cardSet[i] = cardAt(selectedCards.get(i));
 		
@@ -125,6 +127,7 @@ public class ElevensBoard extends Board {
 				}
 			}
 		}
+		return false;
 	}
 
 	/**
@@ -137,8 +140,8 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
-		//creates an array carSet of all the cards at the selectedCards indexes
-		Card cardSet = new Card[selectedCards.size()];
+		//creates an array cardSet of all the cards at the selectedCards indexes
+		Card[] cardSet = new Card[selectedCards.size()];
 		for (int i = 0; i < selectedCards.size(); i++)
 			cardSet[i] = cardAt(selectedCards.get(i));
 		

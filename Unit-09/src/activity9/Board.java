@@ -12,7 +12,7 @@ public abstract class Board {
 	/**
 	 * The cards on this board.
 	 */
-	private ArrayList<Card> cards = new ArrayList<Card>();
+	private Card[] cards;
 
 	/**
 	 * The deck of cards being used to play the current game.
@@ -33,7 +33,7 @@ public abstract class Board {
 	 *                    the deck
 	 */
 	public Board(int size, String[] ranks, String[] suits, int[] pointValues) {
-		//cards = new Card[size];
+		cards = new Card[size];
 		deck = new Deck(ranks, suits, pointValues);
 		if (I_AM_DEBUGGING) {
 			System.out.println(deck);
@@ -58,7 +58,7 @@ public abstract class Board {
 	 * @return the size of the board
 	 */
 	public int size() {
-		return cards.size();
+		return cards.length;
 	}
 
 	/**
@@ -66,8 +66,8 @@ public abstract class Board {
 	 * @return true if this board is empty; false otherwise.
 	 */
 	public boolean isEmpty() {
-		for (int k = 0; k < cards.size(); k++) {
-			if (cards.get(k) != null) {
+		for (int k = 0; k < cards.length; k++) {
+			if (cards[k] != null) {
 				return false;
 			}
 		}
@@ -80,7 +80,7 @@ public abstract class Board {
 	 * @param k the index of the card to be dealt.
 	 */
 	public void deal(int k) {
-		cards.set(k, deck.deal());
+		cards[k] = deck.deal();
 	}
 
 	/**
@@ -97,7 +97,7 @@ public abstract class Board {
 	 * @param k is the board position of the card to return.
 	 */
 	public Card cardAt(int k) {
-		return cards.get(k);
+		return cards[k];
 	}
 
 	/**
@@ -119,8 +119,8 @@ public abstract class Board {
 	 */
 	public List<Integer> cardIndexes() {
 		List<Integer> selected = new ArrayList<Integer>();
-		for (int k = 0; k < cards.size(); k++) {
-			if (cards.get(k) != null) {
+		for (int k = 0; k < cards.length; k++) {
+			if (cards[k] != null) {
 				selected.add(new Integer(k));
 			}
 		}
@@ -179,7 +179,8 @@ public abstract class Board {
 	 */
 	private void dealMyCards() {
 		for (int k = 0; k < cards.length; k++) {
-			cards.set(k, deck.deal());
+			cards[k] = deck.deal();
 		}
 	}
 }
+
