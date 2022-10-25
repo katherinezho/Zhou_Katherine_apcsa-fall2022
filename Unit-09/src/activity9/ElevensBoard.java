@@ -1,3 +1,5 @@
+package activity9;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -54,6 +56,29 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean isLegal(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		Card cardSet = new Card[selectedCards.size()];
+		for (int i = 0; i < selectedCards.size(); i++)
+			cardSet[i] = cardAt(selectedCards.get(i));
+		//checks if add up to 11
+		if(selectedCards.size() == 2){
+			if((cardSet[0].pointValue() + cardSet[1].pointValue() == 11))
+				return true;
+		}
+		//checks if j, q, k
+		for(int j = 0; j < cardSet.length; j++){
+			if(cardSet[j].rank().equals("jack")){
+				for(int q = 0; q < cardSet.length; q++){
+					if(cardSet[q].rank().equals("queen")){
+						for(int k = 0; k < cardSet.length; k++){
+							if(cardSet[k].rank().equals("king")){
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	/**
@@ -67,6 +92,13 @@ public class ElevensBoard extends Board {
 	@Override
 	public boolean anotherPlayIsPossible() {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		
+		//checks if contains 11 sum or jqk -> cardIndexes parameter means every card for play is checked
+		if(containsPairSum11(cardIndexes()) || containsJQK(cardIndexes()){
+			return true;
+		}
+		return false;
+		
 	}
 
 	/**
@@ -79,6 +111,20 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsPairSum11(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		Card cardSet = new Card[selectedCards.size()];
+		for (int i = 0; i < selectedCards.size(); i++)
+			cardSet[i] = cardAt(selectedCards.get(i));
+		
+		
+		
+		//ace through 10
+		for(int i = 0; i < cardSet.length; i++){
+			for(int x = i; x < cardSet.length; x ++){
+				if(cardSet[i].pointValue() + cardSet[x].pointValue() == 11){
+					return true;
+				}
+			}
+		}
 	}
 
 	/**
@@ -91,5 +137,26 @@ public class ElevensBoard extends Board {
 	 */
 	private boolean containsJQK(List<Integer> selectedCards) {
 		/* *** TO BE IMPLEMENTED IN ACTIVITY 9 *** */
+		//creates an array carSet of all the cards at the selectedCards indexes
+		Card cardSet = new Card[selectedCards.size()];
+		for (int i = 0; i < selectedCards.size(); i++)
+			cardSet[i] = cardAt(selectedCards.get(i));
+		
+		//jack, queen, king. Looks through the entire carSet (selected cards) for a jack, then a queen, then a king.
+		for(int j = 0; j < cardSet.length; j++){
+			if(cardSet[j].rank().equals("jack")){
+				for(int q = 0; q < cardSet.length; q++){
+					if(cardSet[q].rank().equals("queen")){
+						for(int k = 0; k < cardSet.length; k++){
+							if(cardSet[k].rank().equals("king")){
+								return true;
+							}
+						}
+					}
+				}
+			}
+		}
+		return false;
+		
 	}
 }
