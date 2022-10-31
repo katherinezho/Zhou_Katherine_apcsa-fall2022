@@ -13,9 +13,18 @@ public class MatrixCount1
     										{ 6, 7, 8, 9, 0},
     										{ 5, 4, 3, 2, 1}};
 
-    public static int count( int val  )
+    public static int count( int val  ) 
     {
-		//add code
-		return 0;
+	    int count = 0;
+		for(int outer = 0; outer < m.length; outer++){
+			for(int inner = 0; inner < m[outer].length; inner++){
+				if(m[inner][outer] == value){
+					count++;
+				}
+			
+			}
+		}
+	    return count;
+
     }
 }
