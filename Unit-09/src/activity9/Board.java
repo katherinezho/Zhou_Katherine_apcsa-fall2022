@@ -33,6 +33,7 @@ public abstract class Board {
 	 *                    the deck
 	 */
 	public Board(int size, String[] ranks, String[] suits, int[] pointValues) {
+		System.out.println("Computer 1, Katherine Zhou, Period 2, 10/25/22");
 		cards = new Card[size];
 		deck = new Deck(ranks, suits, pointValues);
 		if (I_AM_DEBUGGING) {
@@ -40,6 +41,7 @@ public abstract class Board {
 			System.out.println("----------");
 		}
 		dealMyCards();
+		
 	}
 
 	/**
