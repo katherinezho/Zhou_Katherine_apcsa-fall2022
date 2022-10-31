@@ -6,7 +6,10 @@ public class MatrixCount1Runner
 {
 	public static void main( String args[] ) throws Exception
 	{
-		//add code
+		System.out.println("7 appears " + MatrixCount1.count(7) + " times");
+		System.out.println("2 appears " + MatrixCount1.count(2) + " times");
+		System.out.println("4 appears " + MatrixCount1.count(4) + " times");
+		System.out.println("5 appears " + MatrixCount1.count(5) + " times");
 	}
 }
 

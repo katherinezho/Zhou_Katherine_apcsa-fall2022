@@ -18,7 +18,7 @@ public class MatrixCount1
 	    int count = 0;
 		for(int outer = 0; outer < m.length; outer++){
 			for(int inner = 0; inner < m[outer].length; inner++){
-				if(m[inner][outer] == value){
+				if(m[inner][outer] == val){
 					count++;
 				}
 			
