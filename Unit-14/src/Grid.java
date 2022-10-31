@@ -14,7 +14,7 @@ public class Grid
 		grid = new String[rows][cols];
 		for(int outer = 0; outer < grid.length; outer++){
 			for(int inner = 0; inner < grid[outer].length; inner++){
-				grid[outer][inner] = vals[math.random() * vals.length];		
+				grid[outer][inner] = vals[(int)(Math.random() * vals.length)];		
 			}
 		}
 
@@ -26,6 +26,7 @@ public class Grid
 	{
 		int maxCount = 0;
 		String maxCountValue = "";
+		int count = 0;
 		for(int x = 0; x < vals.length; x++){
 			for(int outer = 0; outer < grid.length; outer++){
 				for(int inner = 0; inner < grid[outer].length; inner++){
@@ -35,7 +36,7 @@ public class Grid
 			
 				}
 			}
-			if(count > maxCountValue){
+			if(count > maxCount){
 			maxCount = count;
 			maxCountValue = vals[x];
 		}
@@ -67,10 +68,17 @@ public class Grid
 	public String toString()
 	{
 		String output="";
-		for(int i = 0; i < arrayValues.length; i++){
-			output += "" + arrayValues[i] + “ count is ” + countVals(arrayValues[i]) + “\n”;
+		for(int outer = 0; outer < grid.length; outer++){
+			for(int inner = 0; inner < grid[outer].length; inner++){
+				output += grid[outer][inner] + " ";
+			}
+			output += "\n";
 		}
-		output += findMax(arrayValues) + “ occurs the most”;
+		output += "\n";
+		for(int i = 0; i < arrayValues.length; i++){
+			output += "" + arrayValues[i] + " count is " + countVals(arrayValues[i]) + "\n";
+		}
+		output += findMax(arrayValues) + " occurs the most";
 		return output;
 	}
 }
