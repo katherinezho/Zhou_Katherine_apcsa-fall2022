@@ -13,24 +13,24 @@ public class Ball extends Block
 	public Ball()
 	{
 		super(200, 200);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 
 	//add the other Ball constructors
 	public Ball(int x, int y){
 		super(x, y);
-		xSpeed = 3;
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	public Ball(int x, int y, int height, int width){
-		this(x, y, height, width);
-		xSpeed = 3;
+		super(x, y, height, width);
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	public Ball(int x, int y, int height, int width, Color color){
-		this(x, y, height, width, color);
-		xSpeed = 3;
+		super(x, y, height, width, color);
+		xSpeed = 1;
 		ySpeed = 1;
 	}
 	public Ball(int x, int y, int height, int width, Color color, int xSpeed, int ySpeed){
@@ -59,7 +59,9 @@ public class Ball extends Block
    public void setYSpeed(int y){
    	ySpeed = y;
    }
-   
+   public void setPos(int x, int y) {
+	   super.setPos(x, y);
+   }
 
    public void moveAndDraw(Graphics window)
    {
