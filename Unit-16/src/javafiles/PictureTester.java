@@ -129,7 +129,32 @@ public class PictureTester
     water.mirrorArms();
     water.explore();
   }
-  
+  public static void testMirrorGull()
+  {
+    Picture water = new Picture("src/images/seagull.jpg");
+    water.explore();
+    water.mirrorGull();
+    water.explore();
+  }
+  public static void testCopy()
+  {
+    Picture gull = new Picture("src/images/seagull.jpg");
+    gull.explore();
+    gull.copy(gull, 200, 230, 200, 230);
+    gull.explore();
+  }
+  public static void testEdgeDetection2()
+  {
+    Picture swan = new Picture("src/images/beach.jpg");
+    swan.edgeDetection(10);
+    swan.explore();
+  }
+  public static void testMyCollage()
+  {
+    Picture canvas = new Picture("src/images/640x480.jpg");
+    canvas.myCollage();
+    canvas.explore();
+  }
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
@@ -149,15 +174,17 @@ public class PictureTester
     //testMirrorVerticalRightToLeft();
 	//testMirrorHorizontal();
 	//testMirrorHorizontalBotToTop();
-    testMirrorDiagonal();
+    //testMirrorDiagonal();
+    //testMirrorTemple();
     //testMirrorArms();
     //testMirrorGull();
     //testMirrorDiagonal();
     //testCollage();
-    //testCopy();
+	 //testMyCollage();
+   // testCopy();
     //testEdgeDetection();
-    //testEdgeDetection2();
-    //testChromakey();
+    testEdgeDetection2();
+	//testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
