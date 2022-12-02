@@ -353,15 +353,15 @@ public class Picture extends SimplePicture
       // loop from 13 to just before the mirror point
       for (int col = 100; col < 170; col++){
         leftPixel = pixels[row][col];
-        rightPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+        rightPixel = pixels[mirrorLine - row + mirrorLine][col];
         rightPixel.setColor(leftPixel.getColor());
       }
     }
-    for (int row = 150; row < mirrorPoint; row++){
+    for (int row = 150; row < mirrorLine; row++){
       // loop from 13 to just before the mirror point
       for (int col = 230; col < 300; col++){
         leftPixel = pixels[row][col];
-        rightPixel = pixels[mirrorPoint - row + mirrorPoint][col];
+        rightPixel = pixels[mirrorLine - row + mirrorLine][col];
         rightPixel.setColor(leftPixel.getColor());
       }
     }
