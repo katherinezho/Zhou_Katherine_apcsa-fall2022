@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="Unit-00/src"/>
+	<classpathentry kind="src" path="Unit-01/src"/>
+	<classpathentry kind="src" path="Unit-02/src"/>
+	<classpathentry kind="src" path="Unit-03/src"/>
+	<classpathentry kind="src" path="Unit-04/src"/>
+	<classpathentry kind="src" path="Unit-05/src"/>
+	<classpathentry kind="src" path="Unit-06/src"/>
+	<classpathentry kind="src" path="Unit-07/src"/>
+	<classpathentry kind="src" path="Unit-08/src"/>
+	<classpathentry kind="src" path="Unit-09/src"/>
+	<classpathentry kind="src" path="Unit-11/src"/>
+	<classpathentry kind="src" path="Unit-12/src"/>
+	<classpathentry kind="src" path="Unit-13/src"/>
+	<classpathentry kind="src" path="Unit-14/src"/>
+	<classpathentry kind="src" path="Unit-15/src"/>
+	<classpathentry kind="src" path="Unit-16/src"/>
+	<classpathentry kind="src" path="Unit9Students-ArrayLists/src"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
