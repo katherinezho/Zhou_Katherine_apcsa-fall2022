@@ -99,5 +99,17 @@ public class IntArrayWorker
       }
     }
   }
+  
+  public int getCount(int x) {
+    int count = 0;
+      for(int[] r : matrix) {
+        for(int c : r) {
+          if(c == x) {
+            count++;
+          }
+        }
+      }
+      return count;
+  }
  
 }
