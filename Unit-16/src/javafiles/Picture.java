@@ -366,6 +366,100 @@ public class Picture extends SimplePicture
       }
     }
   }
+  public void mirrorGull(){
+    int mirrorLine = 360;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    // loop through the rows
+    for (int row = 235; row < 330; row++) {
+      // loop from 13 to just before the
+      mirror point
+      for (int col = 220; col < mirrorLine; col++) {
+        leftPixel = pixels[row][col];
+        rightPixel = pixels[row][mirrorLine - col + mirrorLine];
+        rightPixel.setColor(leftPixel.getColor());
+      }
+    }
+  }
+  public void mirrorRectangle(int x1, int y1, int x2, int y2, boolean vertical) {
+    int mirrorPoint = x2;
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+      if(vertical) {
+        for(int r = x1; r < x2; r++) {
+           for(int c = y1; c < y2; c++) {
+              leftPixel = pixels[r][c];
+              rightPixel = pixels[mirrorPoint - r + mirrorPoint][c];
+              rightPixel.setColor(leftPixel.getColor());
+            }
+        }
+       } else {
+         for(int r = x1; r < x2; r++) {
+            for(int c = y1; c < y2; c++) {
+                leftPixel = pixels[r][c];
+                rightPixel = pixels[r][mirrorPoint - c + mirrorPoint];
+                rightPixel.setColor(leftPixel.getColor());
+            }
+          }
+       }
+  }
+  public void copy(Picture fromPic, int sr, int er, int sc, int ec) {
+    Pixel fromPixel = null;
+    Pixel toPixel = null;
+    Pixel[][] toPixels = this.getPixels2D();
+    Pixel[][] fromPixels = fromPic.getPixels2D();
+    for(int fromRow = 0, toRow = sr;fromRow < er && toRow < toPixels.length; fromRow++, toRow++) {
+      for (int fromCol = 0, toCol = sr;fromCol < ec && toCol < toPixels[0].length;fromCol++, toCol++) {
+        fromPixel = fromPixels[fromRow][fromCol];
+        toPixel = toPixels[toRow][toCol];
+        toPixel.setColor(fromPixel.getColor());
+      }
+    }
+  }
+  public void myCollage() {
+    Picture pic1 = new Picture("beach.jpg");
+    Picture pic2 = new Picture("background.png");
+    Picture pic3 = new Picture("redMotorcycle.jpg");
+    this.copy(pic1, 0, 100, 0, 200);
+    this.copy(pic2, 100, 0);
+    this.copy(pic3, 200, 0);
+    this.mirrorVertical();
+    this.write("collage.jpg");
+}
+  public void edgeDetection2(double distance){
+    Pixel leftPixel = null;
+    Pixel rightPixel = null;
+    Pixel[][] pixels = this.getPixels2D();
+    double int1;
+    double int2;
+    for(int r = 0; r < pixels.length; r++) {
+      for(int c = 0; c < pixels[0].length-1;c++) {
+        leftPixel = pixels[r][c];
+        rightPixel = pixels[r][c+1];
+        int1 = leftPixel.getRed() + leftPixel.getGreen() +
+        leftPixel.getBlue();
+        int2 = rightPixel.getRed() + rightPixel.getGreen() + rightPixel.getBlue();
+        if(Math.abs(int1 - int2) > distance){
+          leftPixel.setColor(Color.BLACK);
+        } else {
+         leftPixel.setColor(Color.WHITE);
+        }
+      }
+    }
+    for(int r = 0; r < pixels.length-1; r++) {
+      for(int c = 0; c < pixels[0].length;c++) {
+        leftPixel = pixels[r][c];
+        rightPixel = pixels[r+1][c];
+        int1 = leftPixel.getRed() + leftPixel.getGreen() + leftPixel.getBlue();
+        int2 = rightPixel.getRed() + rightPixel.getGreen() + rightPixel.getBlue();
+        if(Math.abs(int1 - int2) > distance){
+          leftPixel.setColor(Color.BLACK);
+        }
+      }
+    }
+  }
   
   /* Main method for testing - each class in Java can have a main 
    * method 
