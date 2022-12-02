@@ -219,6 +219,55 @@ public class Picture extends SimplePicture
   }
   
   
+  public void keepOnlyBlue()
+  {
+    Pixel[][] pixels = this.getPixels2D();
+    for (Pixel[] rowArray : pixels)
+    {
+      for (Pixel pixelObj : rowArray)
+      {
+        pixelObj.setRed(0);
+        pixelObj.setGreen(0);
+      }
+    }
+  }
+  public void negate() {
+    Pixel[][] pixels = this.getPixels2D();
+    int red;
+    int green;
+    int blue;
+    for(Pixel[] rowArray : pixels) {
+      for(Pixel pixelObj : rowArray) {
+        red = 255 - pixelObj.getRed();
+        green = 255 - pixelObj.getGreen();
+        blue = 255 - pixelObj.getBlue();
+        pixelObj.setGreen(green);
+        pixelObj.setRed(red);
+        pixelObj.setBlue(blue);
+      }
+    }
+  }
+  public void grayscale() {
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray : pixels) {
+      for(Pixel pixelObj : rowArray) {
+        int color = pixelObj.getGreen() + pixelObj.getRed() + pixelObj.getBlue();
+        color = color/ 3;
+        pixelObj.setGreen(color);
+        pixelObj.setRed(color);
+        pixelObj.setBlue(color);
+      }
+    }
+  }
+  public void fixUnderwater() {
+    Pixel[][] pixels = this.getPixels2D();
+    for(Pixel[] rowArray : pixels) {
+      for(Pixel pixelObj : rowArray) {
+      pixelObj.setRed(pixelObj.getRed()*5);
+      }
+    }   
+  }
+  
   /* Main method for testing - each class in Java can have a main 
    * method 
    */
@@ -230,17 +279,6 @@ public class Picture extends SimplePicture
     beach.explore();
   }
   
-  public void zeroBlue()
-  {
-    Pixel[][] pixels = this.getPixels2D();
-    for (Pixel[] rowArray : pixels)
-    {
-      for (Pixel pixelObj : rowArray)
-      {
-        pixelObj.setRed(0);
-        pixelObj.setGreen(0);
-      }
-    }
-  } 
+ 
   
 } // this } is the end of class Picture, put all new methods before this
