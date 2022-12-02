@@ -109,7 +109,25 @@ public class IntArrayWorker
           }
         }
       }
-      return count;
+    return count;
+  }
+  public int getLargest() {
+    int large = matrix[0][0];
+    for(int[] r : matrix) {
+      for(int c : r) {
+        if(large < c) {
+          large = c;
+        }
+      }
+    }
+    return large;
+  }
+  public int getColTotal(int col){
+    int total = 0;
+    for(int i = 0; i < matrix.length; i++) {
+      total += matrix[i][col];
+    }
+    return total;
   }
  
 }
