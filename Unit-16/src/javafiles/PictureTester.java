@@ -155,6 +155,14 @@ public class PictureTester
     canvas.myCollage();
     canvas.explore();
   }
+	
+//ENCODE
+public static void encoding()
+{
+	Picture randomPic = new Picture("src/images/beach.jpg");
+	randomPic.encode("src/images/msg.jpg");
+	randomPic.explore();
+}
   
   /** Main method for testing.  Every class can have a main
     * method in Java */
