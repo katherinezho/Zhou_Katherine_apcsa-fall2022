@@ -525,13 +525,19 @@ public class Picture extends SimplePicture
     		currentBlue = currPixel.getBlue();
     		
     		if(messagePixel.getRed() < 125 && messagePixel.getGreen() < 125 && messagePixel.getBlue() < 125) {
-    			currentRed = currentRed + (int)(Math.random() * 2)  + (1);
+    			if(currentRed < 250)
+    				currentRed = currentRed + (int)(Math.random() * 2)  + (1);
+    			else
+    				currentRed = currentRed - (int)(Math.random() * 2)  - (1);
     			messagePixel.setRed(currentRed);
     			messagePixel.setGreen(currentGreen);
     			messagePixel.setBlue(currentBlue);
 
     		}
     		else if(messagePixel.getRed() >=125 && messagePixel.getGreen() >=125 && messagePixel.getBlue() >=125) {
+    			if(currentBlue < 245)
+    				currentBlue = currentBlue + (int)(Math.random() * 6)  + (1);
+    			else
     				currentBlue = currentBlue - (int)(Math.random() * 6)  - (1);
     			messagePixel.setRed(currentRed);
     			messagePixel.setGreen(currentGreen);
