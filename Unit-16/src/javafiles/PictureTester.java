@@ -159,9 +159,13 @@ public class PictureTester
 //ENCODE
 public static void encoding()
 {
-	Picture randomPic = new Picture("src/images/beach.jpg");
-	randomPic.encode("src/images/msg.jpg");
-	randomPic.explore();
+	Picture basePic = new Picture("src/images/bluemotorcycle.jpg");
+	basePic.explore();
+	Picture encodePic = new Picture("src/images/apple_icon.jpg");
+	basePic.encode(encodePic);
+	basePic.explore();
+	basePic.decode();
+	basePic.explore();
 }
   
   /** Main method for testing.  Every class can have a main
@@ -191,12 +195,13 @@ public static void encoding()
 	 //testMyCollage();
    // testCopy();
     //testEdgeDetection();
-    testEdgeDetection2();
+    //testEdgeDetection2();
 	//testChromakey();
     //testEncodeAndDecode();
     //testGetCountRedOverValue(250);
     //testSetRedToHalfValueInTopHalf();
     //testClearBlueOverValue(200);
     //testGetAverageForColumn(0);
+	  encoding();
   }
 }
