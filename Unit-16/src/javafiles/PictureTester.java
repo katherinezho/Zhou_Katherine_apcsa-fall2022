@@ -162,6 +162,7 @@ public static void encoding()
 	Picture basePic = new Picture("src/images/bluemotorcycle.jpg");
 	basePic.explore();
 	Picture encodePic = new Picture("src/images/apple_icon.jpg");
+	encodePic.explore();
 	basePic.encode(encodePic);
 	basePic.explore();
 	basePic.decode();
