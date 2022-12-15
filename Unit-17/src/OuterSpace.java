@@ -19,6 +19,7 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Ship ship;
 	private Alien alienOne;
 	private Alien alienTwo;
+	private Ammo ammunition;
 
 	/* uncomment once you are ready for this part
 	 *
@@ -37,6 +38,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
+		ship = new Ship();
+		
+		alienOne = new Alien();
+		alienTwo = new Alien(300, 300, 50, 50, 1);
 
 		this.addKeyListener(this);
 		new Thread(this).start();
@@ -68,15 +73,57 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
 
+		
+		ship.draw(graphToBack);
+		if(ammunition != null) {
+			ammunition.move("UP");
+			ammunition.draw(graphToBack);
+		}
+		
+		if(alienOne != null) {
+			alienOne.draw(graphToBack);
+		}
+		
+		alienTwo.draw(graphToBack);
+		
+		
 		if(keys[0] == true)
 		{
 			ship.move("LEFT");
+		}
+		
+		if(keys[1] == true) {
+			ship.move("RIGHT");
+		}
+		
+		if(keys[2] == true) {
+			ship.move("UP");
+		}
+		
+		if(keys[3] == true) {
+			ship.move("DOWN");
+		}
+		
+		if(keys[4] == true) {
+			ammunition = new Ammo(ship.getX() + (ship.getWidth()/2) - 5, ship.getY(), 6);
 		}
 
 		//add code to move Ship, Alien, etc.
 
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
+		
+		if(ammunition != null && alienOne != null) {
+			if((ammunition.getY() + ammunition.getHeight()) >= alienOne.getY() 
+					&& ammunition.getY() <= (alienOne.getY() + alienOne.getHeight()) 
+					&& (ammunition.getX() + ammunition.getWidth()) >= alienOne.getX() 
+					&& ammunition.getX() <= (alienOne.getX() + alienOne.getWidth())){
+				
+				
+				alienOne = null;
+				ammunition = null;
+			}
+		}
 
 
 		twoDGraph.drawImage(back, null, 0, 0);

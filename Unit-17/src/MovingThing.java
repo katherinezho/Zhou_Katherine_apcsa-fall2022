@@ -31,51 +31,60 @@ public abstract class MovingThing implements Moveable
 	public MovingThing(int x, int y, int w, int h)
 	{
 		//add code here
+		this.setPos(x, y);
+		this.setWidth(w);
+		this.setHeight(h);
 	}
 
 	public void setPos( int x, int y)
 	{
 		//add code here
+		this.setX(x);
+		this.setY(y);
 	}
 
 	public void setX(int x)
 	{
 		//add code here
+		this.xPos = x;
 	}
 
 	public void setY(int y)
 	{
 		//add code here
+		this.yPos = y;
 	}
 
 	public int getX()
 	{
-		return 0;   //finish this method
+		return this.xPos;   //finish this method
 	}
 
 	public int getY()
 	{
-		return 0;  //finish this method
+		return this.yPos;  //finish this method
 	}
 
 	public void setWidth(int w)
 	{
 		//add code here
+		this.width = w;
 	}
 
 	public void setHeight(int h)
 	{
 		//add code here
+		this.height = h;
 	}
 
 	public int getWidth()
 	{
-		return 0;  //finish this method
+		return this.width;  //finish this method
 	}
 
 	public int getHeight()
 	{
-		return 0;  //finish this method
+		return this.height;  //finish this method
 	}
 
 	public abstract void move(String direction);

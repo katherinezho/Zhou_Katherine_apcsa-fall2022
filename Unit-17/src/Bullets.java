@@ -16,23 +16,37 @@ public class Bullets
 
 	public Bullets()
 	{
+		ammo = new ArrayList<Ammo>();
 	}
 
 	public void add(Ammo al)
 	{
+		ammo.add(al);
 	}
 
 	//post - draw each Ammo
 	public void drawEmAll( Graphics window )
 	{
+		for(Ammo x : ammo) {
+			x.draw(window);
+		}
 	}
 
 	public void moveEmAll()
 	{
+		for(Ammo x : ammo) {
+			x.move("UP");
+		}
 	}
 
 	public void cleanEmUp()
 	{
+		for(int i = 0; i < ammo.size(); i++) {
+			if(ammo.get(i).getX() <= ammo.get(i).getSpeed()) {
+				ammo.remove(i);
+				i--;
+			}
+		}
 	}
 
 	public List<Ammo> getList()
