@@ -119,9 +119,42 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		}
 
 		//add code to move Ship, Alien, etc.
+		if(gameOver == true) 
+		{
+			graphToBack.setColor(Color.WHITE);
+			if(horde.getList().size() == 0)
+		   	{
+				graphToBack.drawString("WINNER", 365, 200);
+		   	
+			else{
+				graphToBack.drawString("LOST", 365, 200);
+			}
+		}
+		
+		
 		
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
+		for (Alien alien : horde.getList())
+		{ //Collide right or collide left NEED TO ADD collide top/bottom
+			if((ship.getX() <= (alien.getX() + alien.getWidth() + Math.abs(ship.getSpeed()))
+					&& ship.getX() > (alien.getX() - ship.getWidth() - Math.abs(ship.getSpeed()))
+					&& ship.getX() >= (alien.getX())
+					&& ship.getY() < (alien.getY() + alien.getHeight())
+					&& (ship.getY() + ship.getHeight()) > alien.getY()) 
+					|| (ship.getX() < (alien.getX() + alien.getWidth() + Math.abs(ship.getSpeed()))
+							&& ship.getX() >= (alien.getX() - ship.getWidth() - Math.abs(ship.getSpeed()))
+							&& ship.getX() <= alien.getX() + alien.getWidth()
+							&& ship.getY() < (alien.getY() + alien.getHeight())
+							&& (ship.getY() + ship.getHeight()) > alien.getY())
+							|| alien.getY() + alien.getHeight() >= 600)
+			{
+				ship.setSpeed(0);
+				horde.stopHorde();
+				shots.clear();
+				gameOver=true;
+			}	
+		}
 		
 		if(ammunition != null && alienOne != null) {
 			if((ammunition.getY() + ammunition.getHeight()) >= alienOne.getY() 
@@ -135,9 +168,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 			}
 		}
 
-
+		if(horde.getList().size == 0){
+			gameOver = true;
+			ship.setSpeed(0);
+		}
 		twoDGraph.drawImage(back, null, 0, 0);
-	}
+}
 
 
 	public void keyPressed(KeyEvent e)
