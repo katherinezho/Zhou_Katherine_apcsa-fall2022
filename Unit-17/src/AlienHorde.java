@@ -94,6 +94,9 @@ public class AlienHorde
 			x.setSpeed(0);
 		}
 	}
+	public List<Alien> getList(){
+		return aliens;
+	}
 
 	public String toString()
 	{
