@@ -50,7 +50,7 @@ public class AlienHorde
 			Alien temp = aliens.get(i);
 			if(i == 0 || aliens.get(i-1).getY() != temp.getY()
 					|| temp.getX() + aliens.get(i-1).getWidth() + 50 < aliens.get(i-1).getX()
-					|| temp.getX() < aliens.get(i-1).getX() + aliens.get(i-1).getWidth() + 50)
+					|| temp.getX() > aliens.get(i-1).getX() + aliens.get(i-1).getWidth() + 50)
 			{
 				if(temp.getSpeed() > 0 && temp.getX() >= 800 - temp.getSpeed() - temp.getWidth()
 						|| temp.getSpeed() < 0 && temp.getX() <= -temp.getSpeed())
@@ -86,6 +86,12 @@ public class AlienHorde
 					
 				}
 			}
+		}
+	}
+	
+	public void stopHorde() {
+		for(Alien x : aliens) {
+			x.setSpeed(0);
 		}
 	}
 

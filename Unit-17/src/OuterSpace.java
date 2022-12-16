@@ -20,12 +20,12 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 	private Alien alienOne;
 	private Alien alienTwo;
 	private Ammo ammunition;
+	private boolean gameOver;
 
-	/* uncomment once you are ready for this part
-	 *
+	
    private AlienHorde horde;
 	private Bullets shots;
-	*/
+	
 
 	private boolean[] keys;
 	private BufferedImage back;
@@ -38,7 +38,10 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 
 		//instantiate other instance variables
 		//Ship, Alien
-		ship = new Ship();
+		ship = new Ship(370, 500, 50, 50, 8);
+		horde = new AlienHorde(20);
+		shots = new Bullets();
+		
 		
 		alienOne = new Alien();
 		alienTwo = new Alien(300, 300, 50, 50, 1);
@@ -72,10 +75,16 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		graphToBack.drawString("StarFighter ", 25, 50 );
 		graphToBack.setColor(Color.BLACK);
 		graphToBack.fillRect(0,0,800,600);
-
-		
 		ship.draw(graphToBack);
-		if(ammunition != null) {
+		horde.drawEmAll(graphToBack);
+		shots.drawEmAll(graphToBack);
+		shots.moveEmAll();
+		horde.moveEmAll();
+		horde.removeDeadOnes(shots.getList());
+		shots.cleanEmUp();
+
+	
+		/*if(ammunition != null) {
 			ammunition.move("UP");
 			ammunition.draw(graphToBack);
 		}
@@ -86,30 +95,31 @@ public class OuterSpace extends Canvas implements KeyListener, Runnable
 		
 		alienTwo.draw(graphToBack);
 		
-		
-		if(keys[0] == true)
+		*/
+		if(keys[0] == true && ship.getX() > ship.getSpeed())
 		{
 			ship.move("LEFT");
 		}
 		
-		if(keys[1] == true) {
+		if(keys[1] == true && ship.getX()<(800-ship.getSpeed() - ship.getWidth())) {
 			ship.move("RIGHT");
 		}
 		
-		if(keys[2] == true) {
+		if(keys[2] == true && ship.getY() < (600 - ship.getSpeed() - ship.getHeight() - 20)) {
 			ship.move("UP");
 		}
 		
-		if(keys[3] == true) {
+		if(keys[3] == true && ship.getY() < (600 - ship.getSpeed() - ship.getHeight() - 20)) {
 			ship.move("DOWN");
 		}
 		
-		if(keys[4] == true) {
-			ammunition = new Ammo(ship.getX() + (ship.getWidth()/2) - 5, ship.getY(), 6);
+		if(keys[4] == true && !gameOver) {
+			shots.add(new Ammo((ship.getX() + ship.getWidth()/2), ship.getY() - 5, 5));
+			keys[4] = false;
 		}
 
 		//add code to move Ship, Alien, etc.
-
+		
 
 		//add in collision detection to see if Bullets hit the Aliens and if Bullets hit the Ship
 		
