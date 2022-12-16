@@ -159,9 +159,9 @@ public class PictureTester
 //ENCODE
 public static void encoding()
 {
-	Picture basePic = new Picture("src/images/bluemotorcycle.jpg");
+	Picture basePic = new Picture("src/images/beach.jpg");
 	basePic.explore();
-	Picture encodePic = new Picture("src/images/apple_icon.jpg");
+	Picture encodePic = new Picture("src/images/msg.jpg");
 	basePic.encode(encodePic);
 	basePic.explore();
 	basePic.decode();
