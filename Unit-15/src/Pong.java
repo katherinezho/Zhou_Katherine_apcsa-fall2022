@@ -13,6 +13,7 @@ import static java.lang.Character.*;
 import java.awt.image.BufferedImage;
 import java.awt.event.ActionListener;
 import java.lang.Math. *;
+import java.util.ArrayList;
 
 public class Pong extends Canvas implements KeyListener, Runnable
 {
@@ -24,13 +25,31 @@ public class Pong extends Canvas implements KeyListener, Runnable
 	private int leftScore = 0;
 	private int rightScore = 0;
 	private Graphics graphString;
+	private int colorCount;
+	private ArrayList<Color> colorList;
+	private ArrayList<Color> currentColors;
+	private int colorIndex;
 
 
-	public Pong()
+	public Pong(int color)
 	{
 		//set up all variables related to the game
-
-
+		colorIndex = 0;
+		colorCount = color;
+		colorList = new ArrayList<Color>();
+		//add colors to baseList
+		currentColors = new ArrayList<Color>();
+		currentColors.add(Color.MAGENTA);
+		currentColors.add(Color.BLUE);
+		currentColors.add(Color.ORANGE);
+		currentColors.add(Color.PINK);
+		currentColors.add(Color.YELLOW);
+		
+		//set up new list
+		for(int i = 0; i < colorCount; i++) {
+			colorList.add(currentColors.get(i));
+		}
+		
 		ball = new Ball();
 		ball.setXSpeed(2);
 		
@@ -102,8 +121,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				
 			};
 			ball.setPos(170, 260);
-			ball.setXSpeed(1);
-			ball.setYSpeed(-1);
+			ball.setXSpeed(2);
+			ball.setYSpeed(-2);
+			
 			
 		}
 		if(!(ball.getX()<=770))
@@ -120,8 +140,9 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				
 			};
 			ball.setPos(170, 260);
-			ball.setXSpeed(1);
-			ball.setYSpeed(-1);
+			ball.setXSpeed(2);
+			ball.setYSpeed(-2);
+			
 			
 		}
 
@@ -141,6 +162,14 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			
 				ball.setXSpeed(Math.abs(ball.getXSpeed()));
+				if(colorIndex < colorList.size()) {
+					ball.color(colorList.get(colorIndex));
+					colorIndex++;
+				}
+				else {
+					ball.color(colorList.get(0));
+					colorIndex = 1;
+				}
 		}
 		
 		
@@ -150,6 +179,14 @@ public class Pong extends Canvas implements KeyListener, Runnable
 		{
 			
 				ball.setXSpeed(-(Math.abs(ball.getXSpeed())));
+				if(colorIndex < colorList.size()) {
+					ball.color(colorList.get(colorIndex));
+					colorIndex++;
+				}
+				else {
+					ball.color(colorList.get(0));
+					colorIndex = 1;
+				}
 		}
 		
 		
@@ -177,7 +214,28 @@ public class Pong extends Canvas implements KeyListener, Runnable
 				rightPaddle.moveDownAndDraw(graphToBack);
 			}
 		}
+	/*	if(keys[4] == true) {
+			//if(leftPaddle.getX() >= 10) {
+				leftPaddle.moveLeftAndDraw(graphToBack);
+			//}
+		}
+		if(keys[5] == true) {
+			//if(leftPaddle.getX() <=770) {
+				leftPaddle.moveRightAndDraw(graphToBack);
+			//}
+		}
+		if(keys[6] == true) {
+			//if(rightPaddle.getX() >= 10) {
+				rightPaddle.moveLeftAndDraw(graphToBack);
+			//}
+		}
+		if(keys[7] == true) {
+			//if(rightPaddle.getX() <=770) {
+				rightPaddle.moveRightAndDraw(graphToBack);
+			//}
+		}
 
+*/
 		if( (ball.getX()>=10)  &&  (ball.getX()<= 770))
 		   twoDGraph.drawImage(back, null, 0, 0);
 	}
@@ -190,6 +248,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			case 'Z' : keys[1]=true; break;
 			case 'I' : keys[2]=true; break;
 			case 'M' : keys[3]=true; break;
+			case 'A' : keys[4]=true; break;
+			case 'S' : keys[5]=true; break;
+			case 'J' : keys[6]=true; break;
+			case 'K' : keys[7]=true; break;
 		}
 	}
 
@@ -201,6 +263,10 @@ public class Pong extends Canvas implements KeyListener, Runnable
 			case 'Z' : keys[1]=false; break;
 			case 'I' : keys[2]=false; break;
 			case 'M' : keys[3]=false; break;
+			case 'A' : keys[4]=false; break;
+			case 'S' : keys[5]=false; break;
+			case 'J' : keys[6]=false; break;
+			case 'K' : keys[7]=false; break;
 		}
 	}
 

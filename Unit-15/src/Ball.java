@@ -53,6 +53,10 @@ public class Ball extends Block
 	
 	   
    //add the set methods
+	
+	public void color(Color col) {
+		super.setColor(col);
+	}
    public void setXSpeed(int x){
    	xSpeed = x;
    }
